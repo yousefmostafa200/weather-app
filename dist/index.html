@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.min.css" />
+    <script type="module" src="js/main.js"></script>
+  </head>
+  <body>
+    <main class="fade-in">
+      <h1 class="offscreen">Weather App Powered by the open weather A P I</h1>
+
+      <section id="searchBar" class="searchBar fade-in">
+        <form
+          action=""
+          id="searchBar__form"
+          class="searchBar__form"
+          role="search"
+        >
+          <label for="searchBar__text" class="offscreen"
+            >Enter a new location</label
+          >
+          <input
+            id="searchBar__text"
+            class="searchBar__text"
+            type="text"
+            role="searchbox"
+            size="40"
+            autocomplete="off"
+            placeholder="City, State, Country"
+          />
+          <button
+            id="searchBar__button"
+            class="searchBar__button btn"
+            title="Submit Location"
+            aria-label="Enter Zip Code or City, State, and Country to retrieve weather conditions"
+          >
+            <i class="fa fa-search"></i>
+            <i class="fas fa-sync fa-spin none"></i>
+          </button>
+        </form>
+      </section>
+
+      <a href="#currentForecast" class="skip-link"
+        >Skip to current conditions</a
+      >
+
+      <section
+        id="currentForecast"
+        class="currentForecast fade-in"
+        role="region"
+        aria-labelledby="currentForecast__location"
+      >
+        <h1 id="currentForecast__location" class="currentForecast__location">
+          Current Conditions
+        </h1>
+        <div
+          id="currentForecast__conditions"
+          class="currentForecast__conditions"
+        >
+          <!-- <div class="icon" id="icon">
+            <i class="far fa-sun" aria-hidden="true" title="Clear sky"></i>
+          </div>
+          <div class="temp">
+            59°
+            <div class="unit">F</div>
+          </div>
+          <div class="desc">Clear Sky</div>
+          <div class="feels">Feels Like 53°</div>
+          <div class="maxtemp">High 62°</div>
+          <div class="mintemp">Low 39°</div>
+          <div class="humidity">Humidity 44%</div>
+          <div class="wind">Wind 7 mph</div> -->
+        </div>
+      </section>
+
+      <a href="#dailyForecast" class="skip-link">Skip to Six Day Forecast</a>
+
+      <nav id="navButtons" class="navButtons fade-in">
+        <button
+          id="getLocation"
+          class="btn"
+          title="Get Location"
+          aria-label="Get the current weather conditions for your current location"
+        >
+          <i class="fas fa-map-marker-alt"></i>
+          <i class="fas fa-sync fa-spin none"></i>
+        </button>
+
+        <button
+          id="home"
+          class="btn"
+          title="Home Weather"
+          aria-label="Get the current weather conditions for your home location"
+        >
+          <i class="fas fa-home"></i>
+          <i class="fas fa-sync fa-spin none"></i>
+        </button>
+
+        <button
+          id="saveLocation"
+          class="btn"
+          title="Save Location"
+          aria-label="Save the current location as your home location"
+        >
+          <i class="fas fa-save"></i>
+          <i class="fas fa-sync fa-spin none"></i>
+        </button>
+
+        <button
+          id="unit"
+          class="btn"
+          title="Change Measurments units"
+          aria-label="Toggle between metric and imperial measurments units"
+        >
+          <i class="fas fa-chart-bar"></i>
+          <i class="fas fa-sync fa-spin none"></i>
+        </button>
+        <button
+          id="refresh"
+          class="btn"
+          title="Refresh Weather"
+          aria-label="Refresh the current weather conditions"
+        >
+          <i class="fas fa-refresh"></i>
+          <i class="fas fa-sync fa-spin none"></i>
+        </button>
+      </nav>
+
+      <hr class="fade-in" />
+      <section
+        id="dailyForecast"
+        class="dailyForecast fade-in"
+        role="region"
+        aria-labelledby="dailyForecast__title"
+      >
+        <h2 id="dailyForecast__title" class="dailyForecast__title offscreen">
+          Six Day Forecast
+        </h2>
+        <div id="dailyForecast__contents" class="dailyForecast__contents">
+          <!-- <div class="forecastDay">
+            <p class="dayAbbreviation">SUN</p>
+            <img src="https://openweathermap.org/img/wn/03d.png" alt="clouds" />
+            <p class="dayHigh">62°</p>
+            <p class="dayLow">44°</p>
+          </div>
+          <div class="forecastDay">
+            <p class="dayAbbreviation">SUN</p>
+            <img src="https://openweathermap.org/img/wn/03d.png" alt="clouds" />
+            <p class="dayHigh">62°</p>
+            <p class="dayLow">44°</p>
+          </div>
+          <div class="forecastDay">
+            <p class="dayAbbreviation">SUN</p>
+            <img src="https://openweathermap.org/img/wn/03d.png" alt="clouds" />
+            <p class="dayHigh">62°</p>
+            <p class="dayLow">44°</p>
+          </div>
+          <div class="forecastDay">
+            <p class="dayAbbreviation">SUN</p>
+            <img src="https://openweathermap.org/img/wn/03d.png" alt="clouds" />
+            <p class="dayHigh">62°</p>
+            <p class="dayLow">44°</p>
+          </div>
+          <div class="forecastDay">
+            <p class="dayAbbreviation">SUN</p>
+            <img src="https://openweathermap.org/img/wn/03d.png" alt="clouds" />
+            <p class="dayHigh">62°</p>
+            <p class="dayLow">44°</p>
+          </div>
+          <div class="forecastDay">
+            <p class="dayAbbreviation">SUN</p>
+            <img src="https://openweathermap.org/img/wn/03d.png" alt="clouds" />
+            <p class="dayHigh">62°</p>
+            <p class="dayLow">44°</p>
+          </div> -->
+        </div>
+        <p id="confirmation" class="offscreen" aria-live="assertive"></p>
+      </section>
+    </main>
+  </body>
+</html>
